@@ -1,3 +1,4 @@
+import os
 from character import Hero, Enemy
 from weapon import short_bow, iron_sword, bazuuka
 
@@ -8,6 +9,7 @@ enemy = Enemy(name="Enemy", health=100, weapon=short_bow)
 bazuuka_uses = 1
 
 while True:
+    os.system("clear")
     hero.attack(enemy)
     enemy.attack(hero)
 
@@ -17,11 +19,12 @@ while True:
     hero.health_bar.draw()
     enemy.health_bar.draw()
 
-    input()
-
     if bazuuka_uses >= 1: 
         hero.equip(bazuuka)
         bazuuka_uses -= 1
         print(f"Using bazuuka! Uses left: {bazuuka_uses}")
     else: 
         hero.drop()
+    
+    input()
+    
